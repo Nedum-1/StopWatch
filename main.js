@@ -58,11 +58,14 @@ window.addEventListener('load', () => {
         document.getElementById('stop').style.display = "none"
     })
     reset.addEventListener('click', () => {
+        document.getElementById('start').innerText = "Start"
+        document.getElementById('stop').style.display = "none"
+        document.getElementById('start').style.display = "inline"
         hour.innerHTML = "00:";
         minute.innerHTML = "00:";
         second.innerHTML = "00";
         clearTimeout(interval);
-        document.getElementById('start').innerText = "Start";
+       ;
     })
 
     console.log(minute)
