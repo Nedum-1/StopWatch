@@ -7,14 +7,18 @@ window.addEventListener('load', () => {
     stop,
     reset,
     minutes,
-    hours;
+    hours,
+    milliseconds,
+    seconds;
 
     hour = document.querySelector('#hour');
     minute = document.querySelector('#minute');
     second = document.querySelector('#seconds');
+    milliseconds = document.querySelector('#milliseconds');
     start = document.querySelector('#start');
     stop = document.querySelector('#stop');
     reset = document.querySelector('#reset');
+    seconds = 0
     minutes = 0;
     hours = 0;
 
@@ -24,12 +28,17 @@ window.addEventListener('load', () => {
         document.getElementById('start').style.display = "none"
         document.getElementById('stop').style.display = "inline"
 
-        interval = setTimeout(begin, 1000)
-        if (second.innerHTML >= 00){
-            second.innerHTML++
+        interval = setTimeout(begin, 10)
+        if (milliseconds.innerHTML >= 0) {
+            milliseconds.innerHTML++
         }
-        if (second.innerHTML <= 9) {
-            second.innerHTML = "0" + second.innerHTML;
+        if (milliseconds.innerHTML == 100){
+            milliseconds.innerHTML = 00;
+            seconds++
+            second.innerHTML = seconds
+        }
+        if (seconds <= 9) {
+            second.innerHTML = "0" + seconds;
         }
         if (second.innerHTML == 60) {
             second.innerHTML = "00";
@@ -64,10 +73,13 @@ window.addEventListener('load', () => {
         hour.innerHTML = "00:";
         minute.innerHTML = "00:";
         second.innerHTML = "00";
+        milliseconds.innerHTML = "00"
+        seconds = 0
+        minutes = 0;
+        hours = 0;
         clearTimeout(interval);
-       ;
     })
 
-    console.log(minute)
+    console.log(second)
 
 })

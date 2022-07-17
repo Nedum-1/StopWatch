@@ -42,6 +42,9 @@ body {
     position: relative;
     top: 68px ;
 }
+#results #milliseconds {
+    font-size: 25px;
+}
 .btns {
     position: relative;
     top: 100px;
